@@ -112,10 +112,10 @@ Issues fixed from test cases:
 
 
 ### References
-https://www.man7.org/linux/man-pages/man2/stat.2.html
-https://www.man7.org/linux/man-pages/man2/readlink.2.html
-https://www.man7.org/linux/man-pages/man5/proc.5.html
-https://www.man7.org/linux/man-pages/man3/snprintf.3p.html
-https://www.man7.org/linux/man-pages/man3/opendir.3.html
-https://www.man7.org/linux/man-pages/man3/closedir.3.html
+- https://www.man7.org/linux/man-pages/man2/stat.2.html
+- https://www.man7.org/linux/man-pages/man2/readlink.2.html
+- https://www.man7.org/linux/man-pages/man5/proc.5.html
+- https://www.man7.org/linux/man-pages/man3/snprintf.3p.html
+- https://www.man7.org/linux/man-pages/man3/opendir.3.html
+- https://www.man7.org/linux/man-pages/man3/closedir.3.html
 
