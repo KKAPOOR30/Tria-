@@ -22,9 +22,14 @@ The tool takes in the following command line arguments and performs the correspo
 - The program can receive multiple, arguments and the ordering repetition does not matter except for the PID positional argument. If none of ``` --per-process --systemWide --Vnode --composite --summary --threshold=X ``` are called then the program will run as if ``` --composite ``` was the only flag called.
 
 ### Description of how you solve/approach the problem
-Explain in plain English and your OWN words how did you solve the problem.
-Use sentences to explain the sequence of steps you took to work in this problem.
-
+- Step 1: Understanding the problem, needed to read the requirements carefully and thoroughly before beginning to work on it.
+- Step 2: Researching, trying to see what data I need, where to get it from, and what to use to get and store this data. Read through multiple man pages, including ones provided on course website, did external research on the internet, asked TAs for advice, etc.
+- Step 3: Coming up with a solution, because of the nature of the problem, I decided to first store all the required data and then print it depending on the input later. Since it was unknown how much data is to be stored, I used linked lists and created my own CDTs for FDs and PIDs to meet my storing and printing needs.
+- Step 4: Reading input, wrote the part of the tool that will read the command line prompts and run the required code depending on the input.
+- Step 5: Getting the data, used the ``` /proc, /proc/<PID>/ ``` directories, and the ``` /proc/<PID>/fd ``` files to read the data. Used many IO funtions and used the ``` stat(), readlink() ``` functions to extract the data. The data was then stored using the CDTs that were created
+- Step 6: Displaying data, whatever data was to be displayed had already been stored, and what was to be displayed was already read and understood, from the inputs so helper functions were made for each of the display tables that will be discussed later
+- Step 7: Freeing all the allocated data, all the data that was stored in CDTs and linked lists had to be released
+- Step 8: Testing, the code was run multiple times using many different types of inputs and any bugs and issues found were fixed.
 
 ### Implementation
    4.i - Describe first in sentences how did you implement your code.
