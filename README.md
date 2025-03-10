@@ -32,11 +32,17 @@ The tool takes in the following command line arguments and performs the correspo
 - Step 8: Testing, the code was run multiple times using many different types of inputs and any bugs and issues found were fixed.
 
 ### Implementation
-   4.i - Describe first in sentences how did you implement your code.
-   4.ii - The modules you created and functions within them.
-   4.iii - Describe the functions in sentences, e.g. this function does this and that and uses this and that sources, system calls, libraries, etc.
-           DO NOT COPY the *documentation* from your code
-
+- ``` read_fd_data(PIDData* pid) ``` Helper to read the FD data of the given pid
+- ``` get_all_data() ```: Gets the pid and fd data for all running processes that we have permission to.
+- ``` get_single_data(int pid) ```: Get the pid and fd data for the provided pid
+- ``` print_per(PIDData* head) ```: Prints the table containing PIDs and their open FDs
+- ``` print_system(PIDData* head) ```: Prints the table containing PIDs, FDs, filenames
+- ``` print_vnode(PIDData* head) ```: Prints the table containing FDs, and Inodes
+- ``` print_composite(PIDData* head, bool file) ```: Prints the table containing PIDs, FDs, filenames, and inodes, if file is true prints to the file otherwise to the terminal
+- ``` print_to_bin(PIDData* head) ``` Prinys the data in binary format to the binary file
+- ``` in_int(char* num) ```Return if the provided string is a non negative integer
+- ``` create_PID(PIDData* head, int pid)``` Creates a new PID node attaches it to the head of the existing linked list
+- ``` creat_FD(int fd, long inode, char* filename, FDData* head) ``` Creates a new FD node and attaches it to the start of the existing linked list and to its corresponding PID
 
 ### Include a pseudo-code of your code
 ```
@@ -75,20 +81,41 @@ A makefile is provided that should take care of all compilations.
 
 
 ### Expected Results
-Describe the expected functioning, functionalities and output of your code demonstrating for several cases and uses.
+The program will output the tables and data based on the input provided. The data will be printed to the terminal, and the corresponding files based on the inputs. The order of the tables will be as follows:
+- per-process
+- system-wide
+- vnodes
+- composite
+- summary
+- threshold
 
+Based on what inputs are provided.
 
 
 ### Test Cases
-Explain what cases you run to test your code, what unexpected outcomes you may have, e.g. if using a mistaken CLA.
+- Inputting each of the recognized cmd prompts
+- Inputting invalid cmd prompts
+- Inputting cmd prompts out of position for the positional prompt
+- Inputting a PID that is not running
+- Inputting a PID that is running
+- Inputting no PID
+- Valgrind testing the code to check for memory leaks
 
+Issues fixed from test cases:
+- Memory leaks fixed
+- PIDs with no permissions were also initially added to the list, which was then fixed
+- Table formatting was off and chaotic which was fixed
 
 
 ## Disclaimers
-Anything that must be disclaimed about your code.
-E.g. my code will fail if the among of memory available on the system is less than 4GB.
-
+- An assumption was made using some research that the max path length for the file name will be of 4500 characters
 
 
 ### References
-You must cite ALL references used while working on this project.
+https://www.man7.org/linux/man-pages/man2/stat.2.html
+https://www.man7.org/linux/man-pages/man2/readlink.2.html
+https://www.man7.org/linux/man-pages/man5/proc.5.html
+https://www.man7.org/linux/man-pages/man3/snprintf.3p.html
+https://www.man7.org/linux/man-pages/man3/opendir.3.html
+https://www.man7.org/linux/man-pages/man3/closedir.3.html
+
