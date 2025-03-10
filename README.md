@@ -38,21 +38,40 @@ The tool takes in the following command line arguments and performs the correspo
            DO NOT COPY the *documentation* from your code
 
 
-### Include a pseudo-code of your code __OR__ flow chart or diagram of your program and corresponding functions' calls
-    Refs.
-    https://www.geeksforgeeks.org/what-is-pseudocode-a-complete-tutorial/
-    https://en.wikipedia.org/wiki/Flowchart 
+### Include a pseudo-code of your code
+```
+def main(int argc, char**argv){
+  initializing variables
+  
+  for (arguments){
+    Read arguments and process them
+    change initialized values based on inputs
+    check for invalid inputs
+    #For example, if --composite is a parameter, make the composite variable true so we later know, composite is to be displayed
+  }
 
-    https://draw.io
+  if (pid provided){
+    Get data for that pid using get_single_data(pid)
+  }  otherwise {
+    get all pid data using get_all_data()
+  }
 
+  if (per-process is true) {
+    run print_per(head) function
+  } 
+  if (systemWide is true) {
+    run print_system(head) function
+  } ... Similarly do the same for the other input flags ...
 
-
-
-
+  free all the allocated memory
+}
+```
+    
 ### Instructions on how to compile your code
-Describe how to compile the code, dependencies with libraries.
-For makefiles add details about the rules and what they do and how to use them
-
+A makefile is provided that should take care of all compilations.
+- ``` make all ``` will compile the .c file and create/compile the showTables executable file
+- ``` make clean ``` can be used to delete all the object file and the executable file made by the ``` make all ``` command.
+- Once the executable is created it can be run by using the ``` ./showTables ``` command and any flags as stated above can be added after with spaces in between 
 
 
 ### Expected Results
